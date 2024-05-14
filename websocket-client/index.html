@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Socket 101</title>
+  </head>
+  <body>
+    <script>
+      let ws = new WebSocket("ws://localhost:3000");
+
+      // Sending a message to the server
+      setInterval(() => {
+        ws.send(`Message from client : ${new Date()}`);
+      }, 1000);
+
+      ws.onmessage = (message) => console.log(message.data);
+    </script>
+  </body>
+</html>
